@@ -13,14 +13,14 @@ describe('Bubble Sort', () => {
     let numbers = [4, 3, 8, 1, 7];
     let sortedNumbers = bubbleSort(numbers);
 
-    assert.deepEqual(sortedNumbers, [1, 3, 4, 7, 8]);
+    assert.deepEqual(sortedNumbers, numbers.sort());
   })
 
   it('should sort negative numbers from greatest to least', () => {
     let numbers = [-2, -5, -3, -1, -8, -7];
     let sortedNumbers = bubbleSort(numbers);
 
-    assert.deepEqual(sortedNumbers, [-8, -7, -5, -3, -2, -1]);
+    assert.deepEqual(sortedNumbers, numbers.sort());
 
   })
 
@@ -28,7 +28,7 @@ describe('Bubble Sort', () => {
     let letters = ['s', 'i', 'n', 'g', 'e', 'r'];
     let sortedLetters = bubbleSort(letters);
 
-    assert.deepEqual(sortedLetters, ['e', 'g', 'i', 'n', 'r', 's']);
+    assert.deepEqual(sortedLetters, letters.sort());
 
   })
 
@@ -36,8 +36,8 @@ describe('Bubble Sort', () => {
     let randomArray = randomNumbGen(120);
     let sortedArray = [ ...randomArray ].sort( (a, b) => a - b );
 
-    expect(bubbleSort(randomArray)).to.be.deep.equal(sortedArray);
-    
+    assert.deepEqual(sortedArray, randomArray.sort( (a,b) => a - b));
+
   })
 
 })
