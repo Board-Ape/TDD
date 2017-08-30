@@ -32,13 +32,12 @@ describe('Bubble Sort', () => {
 
   })
 
-  it('should be able to sort large arrays of large numbers', () => {
-    let randomNumberArray = randomNumbGen(1000);
-    let prototypeCheatingSortedNumbers = randomNumberArray.sort((a,b) => a - b);
-    let bubbleSortedNumbers = bubbleSort(randomNumberArray);
+  it('should sort large arrays that are randomly generated', () => {
+    let randomArray = randomNumbGen(120);
+    let sortedArray = [ ...randomArray ].sort( (a, b) => a - b );
 
-    assert.deepEqual(bubbleSortedNumbers, prototypeCheatingSortedNumbers);
-
+    expect(bubbleSort(randomArray)).to.be.deep.equal(sortedArray);
+    
   })
 
 })
