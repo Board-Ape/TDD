@@ -10,10 +10,10 @@ describe('Merge Sort', () => {
   })
 
   it('should sort postive numbers from least to greatest', () => {
-    let numbers = [ 3, 5, 7, 8, 2 ];
+    let numbers = [ 100, 3, 5, 7, 8, 2, 8, 7, 3, 10, 100, 1 ];
     let sortedNumbers = mergeSort(numbers);
-
-    assert.deepEqual(sortedNumbers, numbers.sort());
+    console.log(sortedNumbers);
+    assert.deepEqual(sortedNumbers, numbers.sort((a,b) => a-b));
   })
 
   it('should sort negative numbers from least to greatest', () => {
