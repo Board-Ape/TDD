@@ -1,30 +1,28 @@
-function mergeSort(array)  {
-  if (array.length < 2)  {
-    return array;
+function mergeSort (arr) {
+  let mid = Math.floor(arr.length / 2)
+  let left = arr.slice(0, mid)
+  let right = arr.slice(mid, arr.length)
+
+  if (arr.length < 2) {
+    return arr;
+  } else {
+    return merge(mergeSort(left), mergeSort(right))
   }
-
-  var middle = parseInt(array.length / 2);
-  var leftArray = array.slice(0, middle);
-  var rightArray = array.slice(middle, array.length);
-
-  return merge(mergeSort(leftArray), mergeSort(rightArray));
 }
 
-function merge(leftArray, rightArray)   {
-  debugger;
-  var sortedArray = [];
+function merge (left, right) {
+  let sortedArray = []
 
-  while (leftArray.length > 0 && rightArray.length > 0) {
-    if (leftArray[0] <= rightArray[0]) {
-      sortedArray.push(leftArray.shift());
+  while (left.length > 0 && right.length > 0) {
+    if (left[0] <= right[0]) {
+      sortedArray.push(left.shift())
     } else {
-      sortedArray.push(rightArray.shift());
+      sortedArray.push(right.shift())
     }
   }
-
-  sortedArray.push(...leftArray, ...rightArray)
-
-  return sortedArray;
+  sortedArray.push(...left, ...right)
+  return sortedArray
 }
+
 
 module.exports = mergeSort;
